@@ -1,0 +1,16 @@
+/* Background Color */
+.quick-btn-headers > li span strong, .theme-btn, .styled-checkbox:hover + label::before, .close-account, .account-popup input[type="submit"], .dots-heading::before, .dots-heading::after, .dots-heading > i, .landmarks-count, .ad-cat span, .ad-cat a, .pl-title-sec > a, .footer-heading::before, .how-work-box > span i, .prices-btn, .prices-table.active .prices-head, .inner-header > span, .author-details .follow-me, .date-listing, .quick-scroll-section a::before, .reviewer-image > span, .chosen-container-multi .chosen-choices > li.search-choice, .add-hours > ul > li.added-closed > i, .add-hours > ul > li.add-hours-bar > a, .file-upload .file-select .file-select-button, .pagination li.active a, .pagination li a:hover, .blog-thumb > .date, .reply-btn, .comment-form .field input[type="submit"], .quick-office-contact > i, .error-detail > ul > li.go-back-btn a, .gallery-info > a, #filter > li a.selected, .info-tip:hover  > i, .submit-listing:hover, .review-avatar-box > a:hover  {background: #ffe600; }
+
+/* Text Color */
+.search-form form .fields i, .total-reviews > span b, .pl-title-sec > span i, .reviews-title > span, .blog-detail > a i, .subscribe-bar button, .app-details li i, .field-btns > a i, .full-map-btn i, .accordian-box.active > h2::before, .total-rating-avg b, .all-reviews-stars > li .rating-stars b, .review-avatar-box .rating-stars > b, .quick-tip > p a, .services > h3 span, .services:hover > i {color: #ffe600; }
+.add-listing {color: #fff;}
+
+/* Border Color */
+.accordian-box.active > h2::before{color: #555;}
+.accordian-box.active > h2::before{border-color: #555; }
+.add-listing {border-color: #fff;}
+::placeholder {opacity: 0.5;}
+input[type="submit"]::focus,
+input[type="button"]::focus {
+  outline-offset: -2px;
+}
