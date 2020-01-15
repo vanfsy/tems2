@@ -32,15 +32,15 @@
                         <br/>
                         <form method="get" class="form-horizontal form-label-left" action="{{ action($title[1].'Controller@index')}}">
                             @if(!empty($form_query))
-                            @foreach($form_query as $k => $v)
-                                @if(is_array($v))
-                                    @foreach($v as $bbb)
-                                    <input type="hidden" name="{{ $k }}[]" value="{{ $bbb }}">
-                                    @endforeach
-                                @else
-                                    <input type="hidden" name="{{ $k }}" value="{{ $v }}">
-                                @endif
-                            @endforeach
+                                @foreach($form_query as $k => $v)
+                                    @if(is_array($v))
+                                        @foreach($v as $bbb)
+                                            <input type="hidden" name="{{ $k }}[]" value="{{ $bbb }}">
+                                        @endforeach
+                                    @else
+                                        <input type="hidden" name="{{ $k }}" value="{{ $v }}">
+                                    @endif
+                                @endforeach
                             @endif
                             <?php $isSearch = true; ?>
                             @foreach($forms as $key => $form)
@@ -70,6 +70,12 @@
                                     @break
                                     @case('json')
                                     @include('parts.form_json')
+                                    @break
+                                    @case('two_datetimes')
+                                    @include('parts.form_two_datetimes')
+                                    @break
+                                    @case('two_texts')
+                                    @include('parts.form_two_texts')
                                     @break
                                     @default
                                     @include('parts.form_text')
@@ -120,10 +126,13 @@
                                             @endforeach
                                         @elseif($val['value'] == 'upload')
                                             <a href="{{ action($title[1].'Controller@upload', $list->id)}}"
-                                                class="btn btn-primary" style="font-size: 12px" target="_blank">アップロード</a>
+                                               class="btn btn-primary" style="font-size: 12px" target="_blank">アップロード</a>
                                         @elseif($val['value'] == 'download')
                                             <a href="{{ action($title[1].'Controller@download', $list->id)}}"
-                                                class="btn btn-primary" style="font-size: 12px" target="_blank">ダウンロード</a>
+                                               class="btn btn-primary" style="font-size: 12px" target="_blank">ダウンロード</a>
+                                        @elseif($val['value'] == 'show')
+                                            <a href="{{ action($title[1].'Controller@show', $list->id)}}"
+                                               class="btn btn-primary" style="font-size: 12px" target="_blank">詳細</a>
                                         @else
                                             <?php echo $list->{$val['value']} ?>
                                         @endif
@@ -157,12 +166,12 @@
                                                 @slot('label', $tables['actions']['content'][4]['label'])
                                             @endcomponent
                                             @break
-{{--                                            @case('send')
-                                            <a href="{{ action($title[1].'Controller@send', $list->id)
-                                                    }}">
-                                                {{ $val['label'] }}
-                                            </a>
-                                            @break--}}
+                                            {{--                                            @case('send')
+                                                                                        <a href="{{ action($title[1].'Controller@send', $list->id)
+                                                                                                }}">
+                                                                                            {{ $val['label'] }}
+                                                                                        </a>
+                                                                                        @break--}}
                                             @default
                                             @break
                                         @endswitch

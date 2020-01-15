@@ -21,6 +21,7 @@
                         <br/>
                         <form action="" method="post" class="form-horizontal">
                             @foreach($forms as $key => $form)
+                                @if($form['type'] != 'two_datetimes')
                                 <div class="form-group">
                                     <label class="col-md-3 col-sm-3 col-xs-12"
                                            for="first-name">{{ $form['label'] }}</label>
@@ -39,11 +40,7 @@
                                             @break
                                             @case('file')
                                             @if(!empty($data->$key))
-                                                @if(preg_match("/^http/",$data->$key))
-                                                    <img src="{{ $data->$key }}" alt="" width="300"><br>
-                                                @else
-                                                    <img src="{{ env('AWS_URL') }}/user/{{ $data->$key }}" alt="" width="300"><br>
-                                                @endif
+                                                <img src="/uploads/{{ $data->$key }}" alt="" width="300"><br>
                                             @endif
                                             @break
                                             @default
@@ -51,6 +48,7 @@
                                         @endswitch
                                     </div>
                                 </div>
+                                @endif
                             @endforeach
 
                             <div class="ln_solid"></div>
