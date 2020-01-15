@@ -201,7 +201,7 @@
         $("input:checkbox[name=ids]:checked").each(function(){
             ret.push($(this).val());
         });
-        var url = "/building/downloads/";
+        var url = "/tems2/public/building/downloads/";
         var query = ret.join('&');
 
         // alert(url + query);
