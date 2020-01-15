@@ -226,6 +226,11 @@ class Building extends AppModel
 
     protected $_tables = [
         'fields' => [
+            'ids' => [
+                'label' => '',
+                'value' => 'ids',
+                'class' => 'w-20',
+            ],
             'name' => [
                 'label' => '物件名',
                 'value' => 'name',

@@ -23,4 +23,5 @@ Route::resource('building', 'BuildingController', array('names' => 'building'));
 Route::get('building/upload/{id}', 'BuildingController@upload')->name('building.upload');
 Route::post('building/upload_post/{id}', 'BuildingController@uploadPost')->name('building.upload_post');
 Route::get('building/download/{id}', 'BuildingController@download')->name('building.download');
+Route::get('building/downloads/{str}', 'BuildingController@downloads')->name('building.downloads');
 

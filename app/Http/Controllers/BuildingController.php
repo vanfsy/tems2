@@ -212,4 +212,20 @@ class BuildingController extends Controller
         }
 
     }
+
+    public function downloads($str) {
+        $ids = explode("&", $str);
+        foreach ($ids as $id) {
+            $building = Building::find($id);
+            $file_name = $building->file_name;
+//        $file_path = asset('upload/' . $file_name);
+            $file_path = 'uploads/' . $file_name;
+
+            if (file_exists($file_path)) {
+                return Response::download($file_path, $file_name, [
+                    'Content-Length: '. filesize($file_path)
+                ]);
+            }
+        }
+    }
 }

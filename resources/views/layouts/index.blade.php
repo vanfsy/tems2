@@ -102,9 +102,13 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_content">
+
                     @if(!isset($tables['add']) || $tables['add'] == true)
                         <a class="btn btn-primary" style="float:right;"
                            href="{{ action($title[1].'Controller@create')}}">追加</a>
+                        <button class="btn btn-primary" style="float:left;" onclick="postDownloads();"
+                           href="{{ action($title[1].'Controller@create')}}">ダウンロード</button>
+
                     @endif
                     <table id="" class="table table-striped table-bordered">
                         <thead>
@@ -124,6 +128,8 @@
                                                 @if($k) <br/> @endif
                                                 <?php echo $list->{$v} ?>
                                             @endforeach
+                                        @elseif($val['value'] == 'ids')
+                                            <input type="checkbox" name="ids" value="<?php echo $list->id ?>" />
                                         @elseif($val['value'] == 'upload')
                                             <a href="{{ action($title[1].'Controller@upload', $list->id)}}"
                                                class="btn btn-primary" style="font-size: 12px" target="_blank">アップロード</a>
@@ -181,9 +187,25 @@
                         @endforeach
                         <tbody>
                     </table>
+
                     {{ $lists->links() }}
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+<script>
+    function postDownloads() {
+        var ret = [];
+        $("input:checkbox[name=ids]:checked").each(function(){
+            ret.push($(this).val());
+        });
+        var url = "/building/downloads/";
+        var query = ret.join('&');
+
+        // alert(url + query);
+        location.href = url + query;
+
+    }
+</script>
