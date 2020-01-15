@@ -40,7 +40,7 @@
                                             @break
                                             @case('file')
                                             @if(!empty($data->$key))
-                                                <img src="/uploads/{{ $data->$key }}" alt="" width="300"><br>
+                                                <img src="/tems2/public/uploads/{{ $data->$key }}" alt="" width="300"><br>
                                             @endif
                                             @break
                                             @default

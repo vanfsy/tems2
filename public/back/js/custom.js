@@ -5370,14 +5370,14 @@ $(document).ready(function () {
     init_autosize();
     init_autocomplete();
 
-    changeAppendix(document.getElementById('appendix_flg'));
+    // changeAppendix(document.getElementById('appendix_flg'));
 });
 
-function changeAppendix(obj) {
-    var val = obj.options[obj.selectedIndex].value;
-    if (val === '無し') {
-        $('#form-group-file').hide();
-    } else {
-        $('#form-group-file').show();
-    }
-}
+// function changeAppendix(obj) {
+//     var val = obj.options[obj.selectedIndex].value;
+//     if (val === '無し') {
+//         $('#form-group-file').hide();
+//     } else {
+//         $('#form-group-file').show();
+//     }
+// }
