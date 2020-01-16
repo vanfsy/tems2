@@ -18,7 +18,7 @@
             $(function () {
                 $('#' + '<?php echo $datepicker_id; ?>').datepicker({
 
-                    format: 'yyyy年mm月dd日',
+                    format: 'yyyy-mm-dd',
                     // language: 'ja'
                 });
 

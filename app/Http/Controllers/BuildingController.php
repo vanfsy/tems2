@@ -179,6 +179,40 @@ class BuildingController extends Controller
     public function update(Request $request, $id)
     {
         $request->merge(['price' => str_replace(",", "", $request->price)]);
+
+        $req_data = $request->all();
+
+        if ($req_data['building_at-reki'] == 'building_at-wareki') {
+            $nenngou = $req_data['building_at-nenngou'];
+
+            $year = $req_data['building_at-year'];
+
+            if ($year) {
+                $month = $req_data['building_at-month'] ? $req_data['building_at-month'] : 01;
+                $day = $req_data['building_at-day'] ? $req_data['building_at-day'] : 01;
+
+                if ($nenngou == 0) {
+                    $year += 1867;
+                } else if ($nenngou == 1) {
+                    $year += 1911;
+                } else if ($nenngou == 2) {
+                    $year += 1925;
+                } else if ($nenngou == 3) {
+                    $year += 1988;
+                } else if ($nenngou == 4) {
+                    $year += 2018;
+                }
+
+                $date = $year . '-' . $month . '-' . $day;
+
+                $building_at = date('Y-m-d h:i:s', strtotime($date));
+
+            } else {
+                $building_at = '';
+            }
+
+            $request->merge(['building_at' => $building_at]);
+        }
         // validate
         // $this->getValidateAdminRules($request);
 

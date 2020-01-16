@@ -81,7 +81,7 @@
             <?php $dbDate = old($key); ?>
         @endif
 
-        <?php $dbDate = $dbDate ? date('Y年m月d日', strtotime($dbDate)) : ''; ?>
+        <?php $dbDate = $dbDate ? date('Y-m-d', strtotime($dbDate)) : ''; ?>
 
         <input type="text" id="{{ $datepicker_id }}" name="{{ $key }}" class="form-control
                                     col-md-7 col-xs-12" value="{{ $dbDate }}"
@@ -90,7 +90,7 @@
             $(function () {
                 $('#' + '<?php echo $datepicker_id; ?>').datepicker({
 
-                    format: 'yyyy年mm月dd日',
+                    format: 'yyyy-mm-dd',
                     // language: 'ja'
                 });
 
