@@ -40,7 +40,7 @@
                                             @break
                                             @case('file')
                                             @if(!empty($data->$key))
-                                                <a href="/tems2/public/uploads/{{ $data->$key }}">
+                                                <a href="/tems2/public/uploads/{{ $data->$key }}" target="_blank">
                                                     /tems2/public/uploads/{{ $data->$key }}
                                                 </a>
                                             @endif
