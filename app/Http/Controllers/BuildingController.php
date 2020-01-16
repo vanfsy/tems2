@@ -69,7 +69,8 @@ class BuildingController extends Controller
                     $query = $query->where('area4', '<=', $v);
                     $query_count++;
                 } else if ($k != "page") {
-                    $query = $query->where($k, 'LIKE', '%' . $v . '%');
+                    $v1 = mb_convert_kana($v, 'kKVaAsS');
+                    $query = $query->where($k, 'LIKE', '%' . $v1 . '%');
                     $query_count++;
                 }
             }
