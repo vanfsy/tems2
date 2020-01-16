@@ -51,7 +51,6 @@ class Controller extends BaseController
      */
     public function getValidateRules(Request $request)
     {
-
         return $this->validate($request, $this->model->getValidateList());
     }
 

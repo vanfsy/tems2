@@ -11,7 +11,7 @@ class Building extends AppModel
 
     protected $_title = ['物件', 'Building'];
 
-    protected $fillable = ['name', 'created', 'price', 'provider', 'building_at', 'created', 'yield', 'type',
+    protected $fillable = ['name', 'created', 'price', 'provider', 'building_at', 'yield', 'type',
         'structure', 'near_station', 'near_station_time', 'residance_pref', 'residance_city', 'residance_address', 'pref',
         'city', 'address', 'area1', 'area2', 'area3', 'area4', 'file_name'];
     /**
@@ -31,7 +31,6 @@ class Building extends AppModel
             'type' => 'hide',
             'search' => false,
         ],
-
 
         'created' => [
             'label' => '登録日',
@@ -58,7 +57,7 @@ class Building extends AppModel
         ],
         'building_at' => [
             'label' => '築年',
-            'type' => 'datetime',
+            'type' => 'datetime1',
             'sort' => 98,
             'cal_type' => 'date',
             'search' => false,
@@ -202,6 +201,7 @@ class Building extends AppModel
         'name' => 'sometimes|required|max:50',
         'provider' => 'sometimes|required',
         'price' => 'sometimes|required|numeric',
+//        'building_at' => 'sometimes|required_if:building_at-reki,building_at-seireki',
         'building_at' => 'sometimes|required',
         'created' => 'sometimes|required',
         'yield' => 'sometimes|required|numeric',
@@ -236,7 +236,7 @@ class Building extends AppModel
                 'value' => 'name',
                 'class' => '',
             ],
-            'price' => [
+            'created' => [
                 'label' => '登録日',
                 'value' => 'created',
                 'class' => '',

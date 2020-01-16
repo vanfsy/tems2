@@ -21,7 +21,7 @@
                         <form action="{{ action($title[1].'Controller@update',['id' => $data->id])
                         }}"
                               method="post"
-                              class="form-horizontal" enctype="multipart/form-data">
+                              class="form-horizontal" enctype="multipart/form-data" id="submit-form">
                             @csrf
                             @method('PUT')
 
@@ -43,6 +43,9 @@
                                     @break
                                     @case('datetime')
                                     @include('parts.form_datetime')
+                                    @break
+                                    @case('datetime1')
+                                    @include('parts.form_datetime_1')
                                     @break
                                     @case('datetimepicker')
                                     @include('parts.form_datetimepicker')

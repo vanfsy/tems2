@@ -19,7 +19,7 @@
                     <div class="x_content">
                         <br/>
                         <form action="{{ action($title[1].'Controller@store') }}" method="post"
-                              class="form-horizontal" enctype="multipart/form-data">
+                              class="form-horizontal" enctype="multipart/form-data" id="submit-form">
                             @csrf
 
                             @foreach($forms as $key => $form)
@@ -40,6 +40,9 @@
                                     @break
                                     @case('datetime')
                                     @include('parts.form_datetime')
+                                    @break
+                                    @case('datetime1')
+                                    @include('parts.form_datetime_1')
                                     @break
                                     @case('datetimepicker')
                                     @include('parts.form_datetimepicker')

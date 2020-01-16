@@ -93,6 +93,14 @@ class BuildingController extends Controller
         return view('layouts.index')->with(compact('title', 'forms', 'data', 'tables', 'lists', 'query_count'));
     }
 
+    public function create()
+    {
+        $title = $this->model->getTitle();
+        $form_title = $this->name;
+        $forms = $this->model->getFormList();
+        return view('layouts.create')->with(compact('forms', 'title', 'form_title'));
+    }
+
     public function edit($id)
     {
         $title = $this->model->getTitle();
@@ -107,6 +115,42 @@ class BuildingController extends Controller
 
     public function store(Request $request)
     {
+        $request->merge(['price' => str_replace(",", "", $request->price)]);
+
+        $req_data = $request->all();
+
+        if ($req_data['building_at-reki'] == 'building_at-wareki') {
+            $nenngou = $req_data['building_at-nenngou'];
+
+            $year = $req_data['building_at-year'];
+
+            if ($year) {
+                $month = $req_data['building_at-month'] ? $req_data['building_at-month'] : 01;
+                $day = $req_data['building_at-day'] ? $req_data['building_at-day'] : 01;
+
+                if ($nenngou == 0) {
+                    $year += 1867;
+                } else if ($nenngou == 1) {
+                    $year += 1911;
+                } else if ($nenngou == 2) {
+                    $year += 1925;
+                } else if ($nenngou == 3) {
+                    $year += 1988;
+                } else if ($nenngou == 4) {
+                    $year += 2018;
+                }
+
+                $date = $year . '-' . $month . '-' . $day;
+
+                $building_at = date('Y-m-d h:i:s', strtotime($date));
+
+            } else {
+                $building_at = '';
+            }
+
+            $request->merge(['building_at' => $building_at]);
+        }
+//        var_dump($request->all()); exit;
         // validate
         $this->getValidateRules($request);
 
@@ -134,8 +178,11 @@ class BuildingController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->merge(['price' => str_replace(",", "", $request->price)]);
         // validate
         // $this->getValidateAdminRules($request);
+
+        $this->getValidateRules($request);
 
         // save user
         $data = $this->model->find($id);

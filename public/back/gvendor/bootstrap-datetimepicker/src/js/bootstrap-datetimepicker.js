@@ -1204,6 +1204,7 @@
                 var currentMoment,
                     useCurrentGranularity = {
                         'year': function (m) {
+                            alert(m.month(0).date(1).hours(0).seconds(0).minutes(0));
                             return m.month(0).date(1).hours(0).seconds(0).minutes(0);
                         },
                         'month': function (m) {

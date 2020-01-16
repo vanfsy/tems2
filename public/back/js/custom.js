@@ -5333,20 +5333,53 @@ function init_echarts() {
 }
 
 function addCommas(x) {
+    if( x === undefined) return '';
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
 }
 
+function checkBlock(part_id, show_id) {
+    var seireki = part_id + '-seireki';
+    var wareki = part_id + '-wareki';
+    $('#' + seireki).hide();
+    $('#' + wareki).hide();
+    $('#' + show_id).show();
+}
+
 function init_price() {
+
+    // $("#submit-form").submit(function( event ) {
+    //     var x = $('#price').val();
+    //     x = x.replace(",", "");
+    //     $('#price').val(x);
+    //
+    //     event.preventDefault();
+    //     return true;
+    // });
+
+    var x;
+
+    x = $('#price').val();
+    $('#price').val(addCommas(x));
+
+    x = $('#price_lower').val();
+    $('#price_lower').val(addCommas(x));
+
+    x = $('#price_upper').val();
+    $('#price_upper').val(addCommas(x));
+
+
     $('#price').change(function(){
         var x = $(this).val();
         $(this).val(addCommas(x));
     });
+
     $('#price_lower').change(function(){
         var x = $(this).val();
         $(this).val(addCommas(x));
     });
+
     $('#price_upper').change(function(){
         var x = $(this).val();
         $(this).val(addCommas(x));
@@ -5391,6 +5424,7 @@ $(document).ready(function () {
     init_autocomplete();
 
     init_price();
+
     // changeAppendix(document.getElementById('appendix_flg'));
 });
 

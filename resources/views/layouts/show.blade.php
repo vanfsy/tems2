@@ -38,6 +38,9 @@
                                             @case('datetime')
                                             <?php echo $data->$key ?>
                                             @break
+                                            @case('datetime1')
+                                            <?php echo $data->$key ?>
+                                            @break
                                             @case('file')
                                             @if(!empty($data->$key))
                                                 <a href="/tems2/public/uploads/{{ $data->$key }}" target="_blank">
