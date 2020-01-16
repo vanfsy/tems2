@@ -212,13 +212,13 @@ class Building extends AppModel
         'residance_pref' => 'sometimes|required',
         'residance_city' => 'sometimes|required',
         'residance_address' => 'sometimes|required',
-        'pref' => 'sometimes|required',
-        'city' => 'sometimes|required',
-        'address' => 'sometimes|required',
+//        'pref' => 'sometimes|required',
+//        'city' => 'sometimes|required',
+//        'address' => 'sometimes|required',
         'area1' => 'sometimes|required|numeric',
         'area2' => 'sometimes|required|numeric',
-        'area3' => 'sometimes|required|numeric',
-        'area4' => 'sometimes|required|numeric',
+//        'area3' => 'sometimes|required|numeric',
+//        'area4' => 'sometimes|required|numeric',
         'file' => 'sometimes|mimes:jpg,jpeg,png,gif,zip,pdf,doc,docx',
     ];
 

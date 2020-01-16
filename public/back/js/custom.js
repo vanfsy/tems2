@@ -5332,6 +5332,26 @@ function init_echarts() {
 
 }
 
+function addCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+
+function init_price() {
+    $('#price').change(function(){
+        var x = $(this).val();
+        $(this).val(addCommas(x));
+    });
+    $('#price_lower').change(function(){
+        var x = $(this).val();
+        $(this).val(addCommas(x));
+    });
+    $('#price_upper').change(function(){
+        var x = $(this).val();
+        $(this).val(addCommas(x));
+    });
+}
 
 $(document).ready(function () {
 
@@ -5370,8 +5390,10 @@ $(document).ready(function () {
     init_autosize();
     init_autocomplete();
 
+    init_price();
     // changeAppendix(document.getElementById('appendix_flg'));
 });
+
 
 // function changeAppendix(obj) {
 //     var val = obj.options[obj.selectedIndex].value;

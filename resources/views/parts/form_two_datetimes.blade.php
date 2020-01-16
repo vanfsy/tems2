@@ -43,13 +43,13 @@
     if (type === 'month') {
         $(function () {
             $('#' + '<?php echo $datepicker_lower; ?>').datepicker({
-                format: 'yyyy-m',
+                format: 'yyyy年m月',
                 language: 'ja',
                 viewMode: 'months',
                 minViewMode: "months"
             });
             $('#' + '<?php echo $datepicker_upper; ?>').datepicker({
-                format: 'yyyy-m',
+                format: 'yyyy年m月',
                 language: 'ja',
                 viewMode: 'months',
                 minViewMode: "months"
@@ -58,11 +58,11 @@
     } else if (type === 'date') {
         $(function () {
             $('#' + '<?php echo $datepicker_lower; ?>').datepicker({
-                format: 'yyyy-mm-dd',
+                format: 'yyyy年mm月dd日',
                 language: 'ja'
             });
             $('#' + '<?php echo $datepicker_upper; ?>').datepicker({
-                format: 'yyyy-mm-dd',
+                format: 'yyyy年mm月dd日',
                 language: 'ja'
             });
         });

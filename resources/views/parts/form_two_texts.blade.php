@@ -20,14 +20,14 @@
     @endif
 
     <div class="col-md-3 col-sm-3 col-xs-12">
-        <input type="text" id="{{ $key_lower }}" name="{{ $key_lower }}" class="form-control
+        <input type="text" id="{{ $key_lower }}" name="{{ $key_lower }}" class="form-control id="{{ $key_lower }}"
                                     col-md-7 col-xs-12" value="{{ $data_lower }}"
                @if(isset($form['disabled']) && $form['disabled']) disabled @endif>
     </div>
 
     <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">{{ $form['label'] }}上限</label>
     <div class="col-md-3 col-sm-3 col-xs-12">
-        <input type="text" id="{{ $key_upper }}" name="{{ $key_upper }}" class="form-control
+        <input type="text" id="{{ $key_upper }}" name="{{ $key_upper }}" class="form-control id="{{ $key_upper }}"
                                     col-md-7 col-xs-12" value="{{ $data_upper }}"
                @if(isset($form['disabled']) && $form['disabled']) disabled @endif>
     </div>
