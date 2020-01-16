@@ -81,6 +81,16 @@ class BuildingController extends Controller
         $lists = $query->paginate($this->_page_num)->appends(request()->except('page'));
         foreach ($lists as $list) {
             $list->created = date('Y-m-d', strtotime($list->created));
+
+            $now = date('Y-m-d h:i:s');
+            $before = date('Y-m-d h:i:s', strtotime('-48hours'));
+
+            if ($list->created >= $before) {
+                $list->new = true;
+            } else {
+                $list->new = false;
+            }
+
         }
 
         $data = $this->searchData($request->all());

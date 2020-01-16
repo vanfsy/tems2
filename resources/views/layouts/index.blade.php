@@ -122,14 +122,21 @@
                         @foreach ($lists as $list)
                             <tr>
                                 @foreach ($tables['fields'] as $key => $val)
-                                    <td>
+                                    <td class="@if(isset($val['td_class'])) {{ $val['td_class'] }} @endif">
                                         @if (is_array($val['value']))
                                             @foreach($val['value'] as $k=>$v)
                                                 @if($k) <br/> @endif
                                                 <?php echo $list->{$v} ?>
                                             @endforeach
                                         @elseif($val['value'] == 'ids')
-                                            <input type="checkbox" name="ids" value="<?php echo $list->id ?>" />
+                                            @if($list->new)
+                                                <label class="new-badge">NEW</label><br>
+                                            @endif
+                                            <input type="checkbox" name="ids" value="<?php echo $list->id ?>" style="margin-left: 10px"/>
+                                        @elseif($val['value'] == 'name')
+
+                                            <?php echo $list->{$val['value']} ?>
+
                                         @elseif($val['value'] == 'upload')
                                             <a href="{{ action($title[1].'Controller@upload', $list->id)}}"
                                                class="btn btn-primary" style="font-size: 12px" target="_blank">アップロード</a>

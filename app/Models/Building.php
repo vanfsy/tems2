@@ -229,7 +229,8 @@ class Building extends AppModel
             'ids' => [
                 'label' => '',
                 'value' => 'ids',
-                'class' => 'w-20',
+                'class' => 'w-30',
+                'td_class' => 'w-30'
             ],
             'name' => [
                 'label' => '物件名',
