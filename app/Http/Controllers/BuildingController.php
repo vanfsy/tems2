@@ -70,6 +70,7 @@ class BuildingController extends Controller
                     $query_count++;
                 } else if ($k != "page") {
                     $v1 = mb_convert_kana($v, 'kKVaAsS');
+//                    $v1 = $v;
                     $query = $query->where($k, 'LIKE', '%' . $v1 . '%');
                     $query_count++;
                 }
@@ -82,7 +83,7 @@ class BuildingController extends Controller
             $list->created = date('Y-m-d', strtotime($list->created));
         }
 
-        $data = $this->searchData($lists);
+        $data = $this->searchData($request->all());
 
         $title = $this->model->getTitle();
 
