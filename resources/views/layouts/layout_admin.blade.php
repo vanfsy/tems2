@@ -45,7 +45,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="/building" class="site_title">Tems</a>
+                    <a href="/building" class="site_title">Bounder-HD</a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -55,7 +55,7 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-user"></i> 物件管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{url('admin/user')}}">物件一覧</a></li>
+                                    <li><a href="{{route('building.index')}}">物件一覧</a></li>
                                 </ul>
                             </li>
 
@@ -129,9 +129,7 @@
 
         <!-- footer content -->
         <footer>
-            <div class="pull-right">
-                By <a href="http://miraiga-lab.com/" target="_blank">吉田順平</a>
-            </div>
+
             <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->

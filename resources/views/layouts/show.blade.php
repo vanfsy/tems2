@@ -24,7 +24,7 @@
                                 @if($form['type'] != 'two_datetimes')
                                 <div class="form-group">
                                     <label class="col-md-3 col-sm-3 col-xs-12"
-                                           for="first-name">{{ $form['label'] }}</label>
+                                           for="first-name" style="text-align: right">{{ $form['label'] }}</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         @switch($form['type'])
                                             @case('textarea')
