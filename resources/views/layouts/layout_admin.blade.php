@@ -45,7 +45,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="/building" class="site_title">Bounder-HD</a>
+                    <a href="{{route('building.index')}}" class="site_title">Bounder-HD</a>
                 </div>
 
                 <div class="clearfix"></div>
