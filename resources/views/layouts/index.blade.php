@@ -106,8 +106,6 @@
                     @if(!isset($tables['add']) || $tables['add'] == true)
                         <a class="btn btn-primary" style="float:right;"
                            href="{{ action($title[1].'Controller@create')}}">追加</a>
-                        <button class="btn btn-primary" style="float:left;" onclick="postDownloads();"
-                           href="{{ action($title[1].'Controller@create')}}">ダウンロード</button>
 
                     @endif
                     <table id="" class="table table-striped table-bordered">
@@ -132,7 +130,6 @@
                                             @if($list->new)
                                                 <label class="new-badge">NEW</label><br>
                                             @endif
-                                            <input type="checkbox" name="ids" value="<?php echo $list->id ?>" style="margin-left: 10px"/>
                                         @elseif($val['value'] == 'name')
 
                                             <?php echo $list->{$val['value']} ?>
