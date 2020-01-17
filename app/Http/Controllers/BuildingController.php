@@ -73,7 +73,9 @@ class BuildingController extends Controller
                 } else if ($k != "page") {
                     $v1 = mb_convert_kana($v, 'kKVaAsS');
 //                    $v1 = $v;
-                    $query = $query->where($k, 'LIKE', '%' . $v1 . '%')->orwhere($k, 'LIKE', '%' . $v . '%');
+                    $query = $query->where(function($query) use($k, $v, $v1) {
+                        $query->where($k, 'LIKE', '%' . $v1 . '%')->orwhere($k, 'LIKE', '%' . $v . '%');
+                    });
                     $query_count++;
                 }
             }
