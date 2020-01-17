@@ -297,7 +297,8 @@ class BuildingController extends Controller
         $file_name = $building->file_name;
 
 //        $file_path = 'uploads/' . $file_name;
-        $file_path = 'tems2/public/uploads/' . $file_name;
+//        $file_path = 'tems2/public/uploads/' . $file_name;
+        $file_path = 'uploads/' . $file_name;
 //        $file_path = asset('/uploads/' . $file_name);
 //        var_dump($file_path); exit;
 //        var_dump(file_exists($file_path)); exit;
