@@ -254,6 +254,7 @@ class BuildingController extends Controller
         $data = $this->model->findOrFail($id);
         $data['created'] = date('Y-m-d', strtotime($data['created']));
         $data['building_at'] = date('Y-m-d', strtotime($data['building_at']));
+        $data['price'] = number_format($data['price']);
 
         $title = $this->model->getTitle();
         $forms = $this->model->getFormList();
