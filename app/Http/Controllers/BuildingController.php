@@ -296,7 +296,7 @@ class BuildingController extends Controller
         $building = Building::find($id);
         $file_name = $building->file_name;
 //        $file_path = asset('upload/' . $file_name);
-        $file_path = 'tems2/public/uploads/' . $file_name;
+        $file_path = '/tems2/public/uploads/' . $file_name;
 
         if (file_exists($file_path)) {
             return Response::download($file_path, $file_name, [
