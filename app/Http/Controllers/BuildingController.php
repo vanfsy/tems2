@@ -25,10 +25,12 @@ class BuildingController extends Controller
                     $query = $query->where('created', '>=', $v1)->where('created', '<=', $v2);
                     $query_count++;
                 } else if ($k == 'price_lower') {
-                    $query = $query->where('price', '>=', $v);
+                    $v1 = str_replace(",", "", $v);
+                    $query = $query->where('price', '>=', $v1);
                     $query_count++;
                 } else if ($k == 'price_upper') {
-                    $query = $query->where('price', '>=', $v);
+                    $v1 = str_replace(",", "", $v);
+                    $query = $query->where('price', '<=', $v1);
                     $query_count++;
                 } else if ($k == 'building_at_c_lower') {
                     $v1 = $v . '00:00:00';
