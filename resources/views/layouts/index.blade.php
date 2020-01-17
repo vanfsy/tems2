@@ -87,7 +87,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                     <button class="btn btn-primary" type="submit">検索</button>
-                                    <button class="btn btn-primary" type="reset">リセット</button>
+                                    <a class="btn btn-primary" href="{{ route('building.index') }}">リセット</a>
                                 </div>
                             </div>
                         </form>
