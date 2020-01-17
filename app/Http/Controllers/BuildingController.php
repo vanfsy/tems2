@@ -71,7 +71,7 @@ class BuildingController extends Controller
                 } else if ($k != "page") {
                     $v1 = mb_convert_kana($v, 'kKVaAsS');
 //                    $v1 = $v;
-                    $query = $query->where($k, 'LIKE', '%' . $v1 . '%');
+                    $query = $query->where($k, 'LIKE', '%' . $v1 . '%')->orwhere($k, 'LIKE', '%' . $v . '%');
                     $query_count++;
                 }
             }
@@ -306,6 +306,8 @@ class BuildingController extends Controller
                     'Content-Length: '. filesize($file_path)
                 ]);
             }
+        } else {
+            return true;
         }
 
 //        $file_path = asset('/uploads/' . $file_name);
@@ -327,7 +329,7 @@ class BuildingController extends Controller
                 $file_path = 'uploads/' . $file_name;
 
                 if (file_exists($file_path)) {
-                    return Response::download($file_path, $file_name, [
+                    Response::download($file_path, $file_name, [
                         'Content-Length: '. filesize($file_path)
                     ]);
                 }
@@ -342,5 +344,7 @@ class BuildingController extends Controller
 //                ]);
 //            }
         }
+
+        return true;
     }
 }
