@@ -298,17 +298,22 @@ class BuildingController extends Controller
 
 //        $file_path = 'uploads/' . $file_name;
 //        $file_path = 'tems2/public/uploads/' . $file_name;
-        $file_path = 'uploads/' . $file_name;
+        if ($file_name) {
+            $file_path = 'uploads/' . $file_name;
+
+            if (file_exists($file_path)) {
+                return Response::download($file_path, $file_name, [
+                    'Content-Length: '. filesize($file_path)
+                ]);
+            }
+        }
+
 //        $file_path = asset('/uploads/' . $file_name);
 //        var_dump($file_path); exit;
 //        var_dump(file_exists($file_path)); exit;
 //        $file_path = '/tems2/public/uploads/' . $file_name;
 
-        if (file_exists($file_path)) {
-            return Response::download($file_path, $file_name, [
-                'Content-Length: '. filesize($file_path)
-            ]);
-        }
+
 
     }
 
@@ -318,14 +323,24 @@ class BuildingController extends Controller
             $building = Building::find($id);
             $file_name = $building->file_name;
 //        $file_path = asset('upload/' . $file_name);
-            $file_path = 'uploads/' . $file_name;
-//            $file_path = 'tems2/public/uploads/' . $file_name;
+            if ($file_name) {
+                $file_path = 'uploads/' . $file_name;
 
-            if (file_exists($file_path)) {
-                return Response::download($file_path, $file_name, [
-                    'Content-Length: '. filesize($file_path)
-                ]);
+                if (file_exists($file_path)) {
+                    return Response::download($file_path, $file_name, [
+                        'Content-Length: '. filesize($file_path)
+                    ]);
+                }
             }
+
+//            $file_path = 'uploads/' . $file_name;
+////            $file_path = 'tems2/public/uploads/' . $file_name;
+//
+//            if (file_exists($file_path)) {
+//                return Response::download($file_path, $file_name, [
+//                    'Content-Length: '. filesize($file_path)
+//                ]);
+//            }
         }
     }
 }
