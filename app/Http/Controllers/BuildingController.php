@@ -89,12 +89,13 @@ class BuildingController extends Controller
             $now = date('Y-m-d h:i:s');
             $before = date('Y-m-d h:i:s', strtotime('-48hours'));
 
-            if ($list->created >= $before) {
+
+            if ($list->created_at >= $before) {
                 $list->new = true;
             } else {
                 $list->new = false;
             }
-
+            
         }
 
         $data = $this->searchData($request->all());

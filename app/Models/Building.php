@@ -32,12 +32,12 @@ class Building extends AppModel
             'search' => false,
         ],
 
-        'created' => [
-            'label' => '登録日',
-            'type' => 'datetime',
-            'sort' => 99,
-            'search' => true
-        ],
+//        'created' => [
+//            'label' => '登録日',
+//            'type' => 'datetime',
+//            'sort' => 99,
+//            'search' => true
+//        ],
         'provider' => [
             'label' => '物元',
             'type' => 'text',
@@ -237,7 +237,7 @@ class Building extends AppModel
                 'value' => 'name',
                 'class' => '',
             ],
-            'created' => [
+            'created_at' => [
                 'label' => '登録日',
                 'value' => 'created',
                 'class' => '',
