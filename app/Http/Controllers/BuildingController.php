@@ -259,7 +259,11 @@ class BuildingController extends Controller
         $data['created'] = date('Y-m-d', strtotime($data['created']));
         $data['building_at'] = date('Y-m-d', strtotime($data['building_at']));
         $data['price'] = number_format($data['price']);
-
+        $data['area1'] = number_format($data['area1']);
+        $data['area2'] = number_format($data['area2']);
+        $data['area3'] = number_format($data['area3']);
+        $data['area4'] = number_format($data['area4']);
+        
         $title = $this->model->getTitle();
         $forms = $this->model->getFormList();
 
