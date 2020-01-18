@@ -95,7 +95,7 @@ class BuildingController extends Controller
             } else {
                 $list->new = false;
             }
-            
+
         }
 
         $data = $this->searchData($request->all());
