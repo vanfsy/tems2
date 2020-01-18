@@ -239,7 +239,7 @@ class Building extends AppModel
             ],
             'created_at' => [
                 'label' => '登録日',
-                'value' => 'created',
+                'value' => 'created_at',
                 'class' => '',
             ],
             'show' => [
