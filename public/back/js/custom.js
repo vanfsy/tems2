@@ -5333,7 +5333,8 @@ function init_echarts() {
 }
 
 function addCommas(x) {
-    if( x === undefined) return '';
+    if( x === undefined) return null;
+    if( x == "") return null;
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");

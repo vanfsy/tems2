@@ -169,6 +169,7 @@ class BuildingController extends Controller
         $this->getValidateRules($request);
 
         $insert_data = $request->all();
+        $insert_data['price'] = $insert_data['price'] == "" ? NULL : $insert_data['price'];
 
         $file = $request->file('file_name');
         // 画像名
@@ -238,6 +239,8 @@ class BuildingController extends Controller
         $file = $request->file('file_name');
 
         $update_data = $request->all();
+
+        $update_data['price'] = $update_data['price'] == "" ? NULL : $update_data['price'];
         // 画像名
         if (!empty($file)) {
             $destinationPath = 'uploads';
