@@ -1,5 +1,5 @@
 <a class="btn btn-primary" style="font-size: 12px" href="#" data-id="{{ $id }}" onclick="deletePost(this);" class="fs12">削除</a>
-<form method="post" action="{{ url('/admin/'. $table, $id) }}" id="form_{{ $id }}">
+<form method="post" action="{{ url('/'. $table, $id) }}" id="form_{{ $id }}">
     @csrf
     {{ method_field('delete') }}
 </form>

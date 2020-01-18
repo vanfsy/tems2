@@ -169,7 +169,7 @@ class Controller extends BaseController
         // dd($result);
 
         // redirect
-        return redirect('admin/'. $this->name)->withSuccess('保存しました。');
+        return redirect( $this->name)->withSuccess('保存しました。');
     }
 
     /**
@@ -253,6 +253,6 @@ class Controller extends BaseController
         $list = $this->model->find($id);
         $list->valid_flag = 0;
         $list->save();
-        return redirect('admin/'. $this->name);
+        return redirect( $this->name);
     }
 }
