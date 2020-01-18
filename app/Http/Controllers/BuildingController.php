@@ -261,7 +261,7 @@ class BuildingController extends Controller
     public function show($id) {
         $data = $this->model->findOrFail($id);
         $data['created'] = date('Y-m-d', strtotime($data['created']));
-        $data['building_at'] = date('Y-m-d', strtotime($data['building_at']));
+        $data['building_at'] = $data['building_at'] ? date('Y-m-d', strtotime($data['building_at'])) : NULL;
         $data['price'] = $data['price'] ? number_format($data['price']) : NULL;
         $data['area1'] = $data['area1'] ? number_format($data['area1'], 2) : NULL;
         $data['area2'] = $data['area2'] ? number_format($data['area2'], 2) : NULL;
