@@ -24,7 +24,7 @@
                                 <label class="col-md-3 col-sm-3 col-xs-12"
                                        for="first-name" style="text-align: right">登録日</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <?php echo date('Y-m-d', $data->created_at) ?>
+                                    <?php echo $data->created_at ?>
                                 </div>
                             </div>
                             @foreach($forms as $key => $form)
