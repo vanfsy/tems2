@@ -262,11 +262,11 @@ class BuildingController extends Controller
         $data = $this->model->findOrFail($id);
         $data['created'] = date('Y-m-d', strtotime($data['created']));
         $data['building_at'] = date('Y-m-d', strtotime($data['building_at']));
-        $data['price'] = number_format($data['price']);
-        $data['area1'] = number_format($data['area1'], 2);
-        $data['area2'] = number_format($data['area2'], 2);
-        $data['area3'] = number_format($data['area3'], 2);
-        $data['area4'] = number_format($data['area4'], 2);
+        $data['price'] = $data['price'] ? number_format($data['price']) : NULL;
+        $data['area1'] = $data['area1'] ? number_format($data['area1'], 2) : NULL;
+        $data['area2'] = $data['area2'] ? number_format($data['area2'], 2) : NULL;
+        $data['area3'] = $data['area3'] ? number_format($data['area3'], 2) : NULL;
+        $data['area4'] = $data['area4'] ? number_format($data['area4'], 2) : NULL;
 
         $title = $this->model->getTitle();
         $forms = $this->model->getFormList();
