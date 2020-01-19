@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use App\Components\ExifComponent;
 use App\Models\Building;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class BuildingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        parent::__construct();
+
+    }
 
     public function index(Request $request)
     {
