@@ -19,7 +19,7 @@
                 $('#' + '<?php echo $datepicker_id; ?>').datepicker({
 
                     format: 'yyyy-mm-dd',
-                    language: 'ja'
+                    language: 'ja',
                 });
 
             });

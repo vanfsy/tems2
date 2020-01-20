@@ -130,7 +130,7 @@ class BuildingController extends Controller
         $forms = $this->model->getFormList();
         $data = $this->model->find($id);
         $data['created'] = date('Y-m-d', strtotime($data['created']));
-        $data['building_at'] = date('Y-m-d', strtotime($data['building_at']));
+        $data['building_at'] = $data['building_at'] ? date('Y-m-d', strtotime($data['building_at'])) : "";
 
         return view('layouts.edit')->with(compact('data','forms', 'title', 'form_title'));
     }
