@@ -170,7 +170,7 @@ class BuildingController extends Controller
                 $building_at = NULL;
             }
         } else {
-            $building_at = isset($req_data['building_at']) ? $req_data['building_at'] : NULL;
+            $building_at = isset($req_data['building_at']) && $req_data['building_at'] ? $req_data['building_at'] : NULL;
         }
         $request->merge(['building_at' => $building_at]);
 
@@ -237,7 +237,7 @@ class BuildingController extends Controller
             }
 
         } else {
-            $building_at = isset($req_data['building_at']) ? $req_data['building_at'] : NULL;
+            $building_at = isset($req_data['building_at']) && $req_data['building_at'] ? $req_data['building_at'] : NULL;
         }
 
         $request->merge(['building_at' => $building_at]);
