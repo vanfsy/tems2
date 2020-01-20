@@ -169,9 +169,11 @@ class BuildingController extends Controller
             } else {
                 $building_at = '';
             }
-
-            $request->merge(['building_at' => $building_at]);
+        } else {
+            $building_at = isset($req_data['building_at']) ? $req_data['building_at'] : '';
         }
+        $request->merge(['building_at' => $building_at]);
+
 //        var_dump($request->all()); exit;
         // validate
         $this->getValidateRules($request);
@@ -233,9 +235,12 @@ class BuildingController extends Controller
             } else {
                 $building_at = '';
             }
-
-            $request->merge(['building_at' => $building_at]);
+            
+        } else {
+            $building_at = isset($req_data['building_at']) ? $req_data['building_at'] : '';
         }
+
+        $request->merge(['building_at' => $building_at]);
         // validate
         // $this->getValidateAdminRules($request);
 
