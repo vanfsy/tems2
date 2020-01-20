@@ -167,10 +167,10 @@ class BuildingController extends Controller
                 $building_at = date('Y-m-d h:i:s', strtotime($date));
 
             } else {
-                $building_at = '';
+                $building_at = NULL;
             }
         } else {
-            $building_at = isset($req_data['building_at']) ? $req_data['building_at'] : '';
+            $building_at = isset($req_data['building_at']) ? $req_data['building_at'] : NULL;
         }
         $request->merge(['building_at' => $building_at]);
 
@@ -233,11 +233,11 @@ class BuildingController extends Controller
                 $building_at = date('Y-m-d h:i:s', strtotime($date));
 
             } else {
-                $building_at = '';
+                $building_at = NULL;
             }
-            
+
         } else {
-            $building_at = isset($req_data['building_at']) ? $req_data['building_at'] : '';
+            $building_at = isset($req_data['building_at']) ? $req_data['building_at'] : NULL;
         }
 
         $request->merge(['building_at' => $building_at]);
