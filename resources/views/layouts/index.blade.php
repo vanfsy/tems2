@@ -54,7 +54,7 @@
                                     @case('hide')
                                     @break
                                     @case('textarea')
-                                    @include('parts.form_textarea')
+                                    @include('parts.form_text')
                                     @break
                                     @case('html')
                                     @include('parts.form_html')
