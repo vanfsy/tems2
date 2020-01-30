@@ -188,6 +188,7 @@ class BuildingController extends Controller
 
             $filename = time() . uniqid(rand()) . '.' . $file->getClientOriginalExtension();
             $insert_data['file_name'] = $filename;
+            $insert_data['file_realname'] = $file->getClientOriginalName();
 
             $file->move($destinationPath, $filename);
 
@@ -260,6 +261,7 @@ class BuildingController extends Controller
 
             $filename = time() . uniqid(rand()) . '.' . $file->getClientOriginalExtension();
             $update_data['file_name'] = $filename;
+            $update_data['file_realname'] = $file->getClientOriginalName();
 
             $file->move($destinationPath, $filename);
 

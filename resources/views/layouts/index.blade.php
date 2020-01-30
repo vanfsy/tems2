@@ -120,7 +120,7 @@
                         @foreach ($lists as $list)
                             <tr>
                                 @foreach ($tables['fields'] as $key => $val)
-                                    <td class="@if(isset($val['td_class'])) {{ $val['td_class'] }} @endif">
+                                    <td class="@if(isset($val['td_class'])) {{ $val['td_class'] }} @endif" rowspan="{{ $val['td_row'] }}">
                                         @if (is_array($val['value']))
                                             @foreach($val['value'] as $k=>$v)
                                                 @if($k) <br/> @endif
@@ -148,7 +148,7 @@
                                         @endif
                                     </td>
                                 @endforeach
-                                <td>
+                                <td rowspan="2">
                                     @foreach ($tables['actions']['content'] as $key => $val)
                                         @switch($val['action'])
                                             @case('edit')
@@ -187,6 +187,10 @@
                                         @endswitch
                                     @endforeach
                                 </td>
+                            </tr>
+                            <tr>
+                                <td>ファイル名</td>
+                                <td><?php echo $list->file_realname ?></td>
                             </tr>
                         @endforeach
                         <tbody>

@@ -13,7 +13,7 @@ class Building extends AppModel
 
     protected $fillable = ['name', 'created', 'price', 'provider', 'building_at', 'yield', 'type',
         'structure', 'near_station', 'near_station_time', 'residance_pref', 'residance_city', 'residance_address', 'pref',
-        'city', 'address', 'area1', 'area2', 'area3', 'area4', 'file_name'];
+        'city', 'address', 'area1', 'area2', 'area3', 'area4', 'file_realname', 'file_name', 'note'];
     /**
      * Form field.
      *
@@ -189,6 +189,11 @@ class Building extends AppModel
 //            'onChange' => 'changeAppendix(this)',
 //            'search' => false,
 //        ],
+        'note' => [
+            'label' => '備考欄',
+            'type' => 'textarea',
+            'search' => true,
+        ],
         'file_name' => [
             'label' => 'ファイル',
             'type' => 'file',
@@ -230,32 +235,38 @@ class Building extends AppModel
                 'label' => '',
                 'value' => 'ids',
                 'class' => 'w-30',
-                'td_class' => 'w-30'
+                'td_class' => 'w-30',
+                'td_row' => 1,
             ],
             'name' => [
                 'label' => '物件名',
                 'value' => 'name',
                 'class' => '',
+                'td_row' => 1,
             ],
             'created_at' => [
                 'label' => '登録日',
                 'value' => 'created_at',
                 'class' => '',
+                'td_row' => 2,
             ],
             'show' => [
                 'label' => '詳細',
                 'value' => 'show',
-                'class' => ''
+                'class' => '',
+                'td_row' => 2,
             ],
             'upload' => [
                 'label' => 'アップロード',
                 'value' => 'upload',
-                'class' => ''
+                'class' => '',
+                'td_row' => 2,
             ],
             'download' => [
                 'label' => 'ダウンロード',
                 'value' => 'download',
-                'class' => ''
+                'class' => '',
+                'td_row' => 2,
             ],
         ],
         'actions' => ['content' => [
