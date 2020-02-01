@@ -5335,7 +5335,7 @@ function init_echarts() {
 function addCommas(x) {
     if( x === undefined) return null;
     if( x == "") return null;
-    var parts = x.toString().split(".");
+    var parts = x.toString().replace(/,/g, '').split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
 }

@@ -33,11 +33,11 @@ class BuildingController extends Controller
                     $query_count++;
                 } else if ($k == 'price_lower') {
                     $v1 = intval(str_replace(",", "", $v));
-                    $query = $query->where('price', '>=', $v1);
+                    $query = $query->where('price', '>=', intval($v1));
                     $query_count++;
                 } else if ($k == 'price_upper') {
                     $v1 = intval(str_replace(",", "", $v));
-                    $query = $query->where('price', '<=', $v1);
+                    $query = $query->where('price', '<=', intval($v1));
                     $query_count++;
                 } else if ($k == 'building_at_c_lower') {
                     $v1 = $v . '00:00:00';
