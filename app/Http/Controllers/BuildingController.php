@@ -97,6 +97,10 @@ class BuildingController extends Controller
 //        }
 
         $v = 5000000000;
+        $tt = Building::where('price', '>=', $v)->firstOrFail();
+        var_dump($tt); exit;
+
+
         $query = $query->where('price', '>=', $v);
         $query = $query->orderBy('created_at', 'desc');
         var_dump($query->toSql());
