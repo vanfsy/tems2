@@ -96,7 +96,8 @@ class BuildingController extends Controller
 //            }
 //        }
 
-        $query = $query->where('price', '>=', 5000000000);
+        $v = 5000000000;
+        $query = $query->where('price', '>=', $v);
         $query = $query->orderBy('created_at', 'desc');
         var_dump($query->toSql());
         $lists = $query->paginate($this->_page_num)->appends(request()->except('page'));
