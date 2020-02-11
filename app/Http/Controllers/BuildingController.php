@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Components\ExifComponent;
 use App\Models\Building;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
@@ -23,6 +24,7 @@ class BuildingController extends Controller
     {
         $query_count = 0;
         $query = $this->model->query();
+        $query = DB::table('buildings');
 //        if (!empty($request->request)) {
 //            foreach ($this->searchAction($request->request) as $k => $v) {
 //                if ($v == NULL) continue;
