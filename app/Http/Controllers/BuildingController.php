@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Components\ExifComponent;
 use App\Models\Building;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
@@ -23,91 +22,77 @@ class BuildingController extends Controller
     public function index(Request $request)
     {
         $query_count = 0;
-        $query = new Building();
-//        $query = DB::table('buildings');
-//        if (!empty($request->request)) {
-//            foreach ($this->searchAction($request->request) as $k => $v) {
-//                if ($v == NULL) continue;
-//                if ($k == 'created') {
-//                    $v1 = $v . ' 00:00:00';
-//                    $v2 = $v . ' 23:59:59';
-//                    $query = $query->where('created', '>=', $v1)->where('created', '<=', $v2);
-//                    $query_count++;
-//                } else if ($k == 'price_lower') {
-//                    $v1 = intval(str_replace(",", "", $v));
-//                    var_dump($v1);
-//                    $query = $query->where('price', '>=', intval($v1));
-//                    $query_count++;
-//                } else if ($k == 'price_upper') {
-//                    $v1 = intval(str_replace(",", "", $v));
-//                    var_dump($v1);
-//                    $query = $query->where('price', '<=', intval($v1));
-//                    $query_count++;
-//                } else if ($k == 'building_at_c_lower') {
-//                    $v1 = $v . '00:00:00';
-//                    $query = $query->where('building_at', '>=', $v1);
-//                    $query_count++;
-//                } else if ($k == 'building_at_c_upper') {
-//                    $v1 = $v . '23:59:59';
-//                    $query = $query->where('building_at', '<=', $v1);
-//                    $query_count++;
-//                } else if ($k == 'yield_lower') {
-//                    $query = $query->where('yield', '>=', $v);
-//                    $query_count++;
-//                } else if ($k == 'yield_upper') {
-//                    $query = $query->where('yield', '<=', $v);
-//                    $query_count++;
-//                } else if ($k == 'area1_lower') {
-//                    $query = $query->where('area1', '>=', $v);
-//                    $query_count++;
-//                } else if ($k == 'area1_upper') {
-//                    $query = $query->where('area1', '<=', $v);
-//                    $query_count++;
-//                } else if ($k == 'area2_lower') {
-//                    $query = $query->where('area2', '>=', $v);
-//                    $query_count++;
-//                } else if ($k == 'area2_upper') {
-//                    $query = $query->where('area2', '<=', $v);
-//                    $query_count++;
-//                } else if ($k == 'area3_lower') {
-//                    $query = $query->where('area3', '>=', $v);
-//                    $query_count++;
-//                } else if ($k == 'area3_upper') {
-//                    $query = $query->where('area3', '<=', $v);
-//                    $query_count++;
-//                } else if ($k == 'area4_lower') {
-//                    $query = $query->where('area4', '>=', $v);
-//                    $query_count++;
-//                } else if ($k == 'area4_upper') {
-//                    $query = $query->where('area4', '<=', $v);
-//                    $query_count++;
-//                } else if ($k != "page" && $v) {
-//                    var_dump($k);
-//
-//                    $v1 = mb_convert_kana($v, 'kKVaAsS');
-//
-//                    var_dump($v1);
-////                    $v1 = $v;
-//                    $query = $query->where(function($query) use($k, $v, $v1) {
-//                        $query->where($k, 'LIKE', '%' . $v1 . '%')->orwhere($k, 'LIKE', '%' . $v . '%');
-//                    });
-//                    $query_count++;
-//                }
-//            }
-//        }
+        $query = $this->model->query();
+        if (!empty($request->request)) {
+            foreach ($this->searchAction($request->request) as $k => $v) {
+                if ($v == NULL) continue;
+                if ($k == 'created') {
+                    $v1 = $v . ' 00:00:00';
+                    $v2 = $v . ' 23:59:59';
+                    $query = $query->where('created', '>=', $v1)->where('created', '<=', $v2);
+                    $query_count++;
+                } else if ($k == 'price_lower') {
+                    $v1 = floatval(str_replace(",", "", $v));
+                    $query = $query->where('price', '>=', intval($v1));
+                    $query_count++;
+                } else if ($k == 'price_upper') {
+                    $v1 = floatval(str_replace(",", "", $v));
+                    $query = $query->where('price', '<=', intval($v1));
+                    $query_count++;
+                } else if ($k == 'building_at_c_lower') {
+                    $v1 = $v . '00:00:00';
+                    $query = $query->where('building_at', '>=', $v1);
+                    $query_count++;
+                } else if ($k == 'building_at_c_upper') {
+                    $v1 = $v . '23:59:59';
+                    $query = $query->where('building_at', '<=', $v1);
+                    $query_count++;
+                } else if ($k == 'yield_lower') {
+                    $query = $query->where('yield', '>=', $v);
+                    $query_count++;
+                } else if ($k == 'yield_upper') {
+                    $query = $query->where('yield', '<=', $v);
+                    $query_count++;
+                } else if ($k == 'area1_lower') {
+                    $query = $query->where('area1', '>=', $v);
+                    $query_count++;
+                } else if ($k == 'area1_upper') {
+                    $query = $query->where('area1', '<=', $v);
+                    $query_count++;
+                } else if ($k == 'area2_lower') {
+                    $query = $query->where('area2', '>=', $v);
+                    $query_count++;
+                } else if ($k == 'area2_upper') {
+                    $query = $query->where('area2', '<=', $v);
+                    $query_count++;
+                } else if ($k == 'area3_lower') {
+                    $query = $query->where('area3', '>=', $v);
+                    $query_count++;
+                } else if ($k == 'area3_upper') {
+                    $query = $query->where('area3', '<=', $v);
+                    $query_count++;
+                } else if ($k == 'area4_lower') {
+                    $query = $query->where('area4', '>=', $v);
+                    $query_count++;
+                } else if ($k == 'area4_upper') {
+                    $query = $query->where('area4', '<=', $v);
+                    $query_count++;
+                } else if ($k != "page" && $v) {
+                    $v1 = mb_convert_kana($v, 'kKVaAsS');
 
-        $v = floatval(4200000000);
-        $tt = Building::where('price', '>=', $v)->firstOrFail();
-        var_dump($tt); exit;
+//                    $v1 = $v;
+                    $query = $query->where(function($query) use($k, $v, $v1) {
+                        $query->where($k, 'LIKE', '%' . $v1 . '%')->orwhere($k, 'LIKE', '%' . $v . '%');
+                    });
+                    $query_count++;
+                }
+            }
+        }
 
 
-        $query = $query->where('price', '>=', $v);
         $query = $query->orderBy('created_at', 'desc');
-        var_dump($query->toSql());
         $lists = $query->paginate($this->_page_num)->appends(request()->except('page'));
 
-        var_dump($lists);
-        exit;
         foreach ($lists as $list) {
             $list->created = date('Y-m-d', strtotime($list->created));
 
