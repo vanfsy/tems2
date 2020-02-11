@@ -96,7 +96,7 @@ class BuildingController extends Controller
 //            }
 //        }
 
-        $v = int(4200000000);
+        $v = floatval(4200000000);
         $tt = Building::where('price', '>=', $v)->firstOrFail();
         var_dump($tt); exit;
 
