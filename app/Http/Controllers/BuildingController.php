@@ -94,10 +94,14 @@ class BuildingController extends Controller
             }
         }
 
-        exit;
 
         $query = $query->orderBy('created_at', 'desc');
+
+        var_dump($query);
         $lists = $query->paginate($this->_page_num)->appends(request()->except('page'));
+
+        var_dump($lists);
+        exit;
         foreach ($lists as $list) {
             $list->created = date('Y-m-d', strtotime($list->created));
 
