@@ -23,7 +23,7 @@ class BuildingController extends Controller
     public function index(Request $request)
     {
         $query_count = 0;
-        $query = Building::query();
+        $query = new Building();
 //        $query = DB::table('buildings');
 //        if (!empty($request->request)) {
 //            foreach ($this->searchAction($request->request) as $k => $v) {
