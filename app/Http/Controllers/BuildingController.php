@@ -24,7 +24,7 @@ class BuildingController extends Controller
     {
         $query_count = 0;
         $query = Building::query();
-        $query = DB::table('buildings');
+//        $query = DB::table('buildings');
 //        if (!empty($request->request)) {
 //            foreach ($this->searchAction($request->request) as $k => $v) {
 //                if ($v == NULL) continue;
