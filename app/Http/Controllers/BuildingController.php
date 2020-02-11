@@ -33,10 +33,12 @@ class BuildingController extends Controller
                     $query_count++;
                 } else if ($k == 'price_lower') {
                     $v1 = intval(str_replace(",", "", $v));
+                    var_dump($v1);
                     $query = $query->where('price', '>=', intval($v1));
                     $query_count++;
                 } else if ($k == 'price_upper') {
                     $v1 = intval(str_replace(",", "", $v));
+                    var_dump($v1);
                     $query = $query->where('price', '<=', intval($v1));
                     $query_count++;
                 } else if ($k == 'building_at_c_lower') {
@@ -78,7 +80,11 @@ class BuildingController extends Controller
                     $query = $query->where('area4', '<=', $v);
                     $query_count++;
                 } else if ($k != "page") {
+                    var_dump($k);
+
                     $v1 = mb_convert_kana($v, 'kKVaAsS');
+
+                    var_dump($v1);
 //                    $v1 = $v;
                     $query = $query->where(function($query) use($k, $v, $v1) {
                         $query->where($k, 'LIKE', '%' . $v1 . '%')->orwhere($k, 'LIKE', '%' . $v . '%');
@@ -87,6 +93,8 @@ class BuildingController extends Controller
                 }
             }
         }
+
+        exit;
 
         $query = $query->orderBy('created_at', 'desc');
         $lists = $query->paginate($this->_page_num)->appends(request()->except('page'));
