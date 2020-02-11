@@ -79,7 +79,7 @@ class BuildingController extends Controller
                 } else if ($k == 'area4_upper') {
                     $query = $query->where('area4', '<=', $v);
                     $query_count++;
-                } else if ($k != "page") {
+                } else if ($k != "page" && $v) {
                     var_dump($k);
 
                     $v1 = mb_convert_kana($v, 'kKVaAsS');
@@ -96,8 +96,6 @@ class BuildingController extends Controller
 
 
         $query = $query->orderBy('created_at', 'desc');
-
-        var_dump($query);
         $lists = $query->paginate($this->_page_num)->appends(request()->except('page'));
 
         var_dump($lists);
